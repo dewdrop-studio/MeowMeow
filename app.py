@@ -8,7 +8,7 @@ st.set_page_config(page_title="😺 MeowMeow Silly Classifier!", page_icon="😺
 st.title("😺 MeowMeow Silly Classifier!")
 st.write("Upload an image and let the AI decide: Is it Silly or Not Silly?")
 
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "../../models/meowmeow.keras")
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "models/meowmeow.keras")
 
 @st.cache_resource
 def load_model():
