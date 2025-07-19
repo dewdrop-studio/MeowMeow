@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panning Image Grid Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      background: #181818;
+      overflow: hidden;
+    }
+    .gallery-viewport {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      position: fixed;
+      top: 0; left: 0;
+      z-index: 1;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+      gap: 4px;
+      width: 100vw;
+      height: 150vh;
+      position: absolute;
+      top: 0; left: 0;
+    }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: box-shadow 0.3s, transform 0.3s;
+      background: #222;
+    }
+    .gallery-img:hover {
+      box-shadow: 0 8px 24px 0 #ffb34799;
+      z-index: 2;
+      transform: scale(1.12) rotate(-2deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery-viewport">
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+  <script>
+    // Generate a much larger pool of images for infinite scrolling
+    // const saltImgs = Array(500).fill(0).map((_,i)=>`../datasets/salt/${(i%100)+1}.jpg`);
+    const targetImgs = Array(500).fill(0).map((_,i)=>`../datasets/target/${(i%100)+1}.jpg`);
+    const images = [...targetImgs];
+
+    const cols = 12;
+    const rows = 8;
+    const grid = document.getElementById('galleryGrid');
+    let currentOffset = 0;
+    
+    // Create initial grid of images
+    function createImageGrid() {
+      grid.innerHTML = '';
+      for (let i = 0; i < cols * rows * 3; i++) { // Create 3 screens worth
+        const img = document.createElement('img');
+        img.className = 'gallery-img';
+        img.src = images[i % images.length];
+        img.alt = `cat ${i}`;
+        grid.appendChild(img);
+      }
+    }
+    
+    createImageGrid();
+    
+    // Infinite scroll animation
+    let scrollY = 0;
+    function animate() {
+      scrollY += 0.5; // Slower, smoother scroll speed
+      
+      const rowHeight = grid.children[0].offsetHeight + 4; // image height + gap
+      
+      if (scrollY >= rowHeight) {
+        // Move the first row to the bottom
+        for (let i = 0; i < cols; i++) {
+          const firstImg = grid.children[0];
+          grid.removeChild(firstImg);
+          
+          // Create new image for the bottom
+          const newImg = document.createElement('img');
+          newImg.className = 'gallery-img';
+          currentOffset++;
+          newImg.src = images[currentOffset % images.length];
+          newImg.alt = `cat ${currentOffset}`;
+          grid.appendChild(newImg);
+        }
+        // Adjust scrollY to make the transition seamless
+        scrollY -= rowHeight;
+      }
+      
+      grid.style.transform = `translateY(-${scrollY}px)`;
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
