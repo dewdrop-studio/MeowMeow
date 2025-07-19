@@ -47,6 +47,7 @@ class Model:
 
         ## --- Augmentation layers --- ##
         self.__model.add(keras.layers.RandomFlip("horizontal"))
+        self.__model.add(keras.layers.RandomFlip("vertical"))
         self.__model.add(keras.layers.RandomRotation(0.1))
 
         ## --- Convolutional layers --- ##
@@ -67,6 +68,9 @@ class Model:
         )
 
     def __load_image(self, image_path, label=None):
+        if label is None:
+            label = 0
+
         image = tf.io.read_file(image_path)
         image = tf.image.decode_jpeg(image, channels=3)
         image = tf.image.resize(image, [self.__input_shape[0], self.__input_shape[1]])
@@ -116,7 +120,7 @@ class Model:
 
     def predict(self, images):
         if not isinstance(images, list):
-            raise ValueError("Input must be a list of image paths.")
+            images = [images]
 
         images_tensor = tf.stack([self.__load_image(img) for img in images])
         predictions = self.__model.predict(images_tensor)
