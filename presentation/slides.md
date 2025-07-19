@@ -71,5 +71,3 @@ image classification project using CNN
 ## Scan me
 (or just go to [sillibilli](https://sillibilli.streamlit.app))
 ![bg left:40% 80%](https://github.com/dewdrop-studio/MeowMeow/blob/master/presentation/qr-code.png?raw=true)
-
----
