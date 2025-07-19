@@ -1,0 +1,30 @@
+[project]
+name = "meowmeow"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Aabish Malik", email = "aabishmalik3337@gmail.com" }
+]
+dependencies = [
+    "torch>=2.7.1",
+    "tensorflow>=2.19.0",
+    "keras>=3.10.0",
+    "pandas>=2.3.1",
+    "scikit-learn>=1.7.1",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/meowmeow"]
