@@ -16,10 +16,10 @@ def load_model():
 
 model = load_model()
 
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg"])
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
-    image = Image.open(uploaded_file)
+    image = Image.open(uploaded_file).convert("RGB")
     st.image(image, caption="Uploaded Image")
     st.write("Analyzing...")
 
