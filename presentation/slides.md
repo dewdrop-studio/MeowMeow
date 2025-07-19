@@ -3,6 +3,7 @@ marp: true
 # backgroundColor: '#222'
 theme: uncover
 _class: invert
+
 ---
 
 ![bg right:40% 80%](https://em-content.zobj.net/source/microsoft-teams/363/cat-face_1f431.png)
@@ -39,6 +40,7 @@ image classification project using CNN
 
 
 ## Results & Visualization
+<div style="font-size: 0.5em;">
 
 | Layer (type)                | Output Shape         | Param #      |
 |-----------------------------|---------------------|--------------|
@@ -58,6 +60,16 @@ image classification project using CNN
 **Non-trainable params:** 0 (0.00 B)  
 **Optimizer params:** 12,169,412 (46.42 MB)
 
+</div>
+
 ---
 ### `Lets check whether your billi is silly`
 ![bg](https://media.giphy.com/media/13borq7Zo2kulO/giphy.gif)
+
+
+---
+## Scan me
+(or just go to sillibilli.streamlit.app)
+![bg left:40% 80%](qr-code.png)
+
+---
