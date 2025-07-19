@@ -9,16 +9,16 @@ _class: invert
 ![bg right:40% 80%](https://em-content.zobj.net/source/microsoft-teams/363/cat-face_1f431.png)
 
 # MeowMeow
+image classification project using CNN  
 
-image classification project using CNN 
-
+>by Radhey & Aabish
 ---
 
 ## Project Overview 
 
 ![bg 40% opacity:0.4](https://em-content.zobj.net/source/microsoft-teams/363/camera_1f4f7.png)
 
-- 🐱 dataset compries of labaed images marked silly or not-silly
+- 🐱 dataset of labeled images marked silly or not-silly
 - 🤖 Uses Keras for model training
 - 📊 Streamlit dashboard for a clean interface
 
@@ -32,7 +32,7 @@ image classification project using CNN
 - Visualizes dataset stats and image samples
 
 <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; margin: 0; padding: 0; overflow: hidden; z-index: -1; opacity: 0.5;">
-    <iframe src="visu.html" style="position: absolute; top: 0; left: 0; border: none; width: 100vw; height: 100vh;"></iframe>
+    <iframe src="https://dewdrop-studio.github.io/MeowMeow/presentation/visu.html" style="position: absolute; top: 0; left: 0; border: none; width: 100vw; height: 100vh;"></iframe>
 </div>
 
 ---
@@ -69,7 +69,7 @@ image classification project using CNN
 
 ---
 ## Scan me
-(or just go to sillibilli.streamlit.app)
-![bg left:40% 80%](qr-code.png)
+(or just go to [sillibilli](https://sillibilli.streamlit.app))
+![bg left:40% 80%](https://github.com/dewdrop-studio/MeowMeow/blob/master/presentation/qr-code.png?raw=true)
 
 ---

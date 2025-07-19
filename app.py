@@ -33,7 +33,8 @@ if uploaded_file is not None:
     silly_label = "😹 Silly!" if silly_prob < 0.5 else "😼 Not Silly!"
     st.markdown(f"## Prediction: {silly_label}")
     st.progress(silly_prob if silly_prob > 0.5 else 1-silly_prob)
-    st.write(f"Confidence: {silly_prob*100:.2f}% Silly" if silly_prob < 0.5 else f"Confidence: {(1-silly_prob)*100:.2f}% Not Silly")
+    st.write(f"Confidence: {silly_prob*100:.2f}% Silly" if silly_prob >
+              0.5 else f"Confidence: {(1-silly_prob)*100:.2f}% Not Silly")
     st.balloons() if silly_prob < 0.5 else st.snow()
 else:
     st.info("Please upload an image to get started!")
